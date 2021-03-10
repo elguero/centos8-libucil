@@ -16,6 +16,9 @@ Patch1:		libucil-0.9.10-leaks.patch
 # fix some compile-time warnings
 Patch2:		libucil-0.9.10-warnings.patch
 
+# fix location of asoundlib.h in newer versions of alsa-lib
+Patch3:		fix-asoundlib-location-from-newer-library.patch
+
 BuildRequires:	autoconf, automake, gettext-devel, libtool
 BuildRequires:	intltool, /usr/bin/perl, perl(XML::Parser), gettext, gtk-doc >= 1.4
 BuildRequires:	libunicap-devel, glib2-devel, pango-devel, alsa-lib-devel
@@ -45,6 +48,8 @@ documentation of the library, too.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+
 # fixes for gtk-doc 1.26
 sed -i -e '/^DOC_SOURCE_DIR/s/--source-dir=//g' doc/libucil/Makefile.am
 mkdir -p m4
